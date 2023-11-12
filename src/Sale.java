@@ -7,6 +7,15 @@ public class Sale {
     private Double cost;
     private ArrayList<Client> costumerData;
     private ArrayList<Vehicle> vehiculeData;
+    private  ArrayList<Sale> saleData;
+
+    public ArrayList<Sale> getSaleData() {
+        return saleData;
+    }
+
+    public void setSaleData(ArrayList<Sale> saleData) {
+        this.saleData = saleData;
+    }
 
     public String getId() {
         return id;

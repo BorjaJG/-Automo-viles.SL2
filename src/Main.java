@@ -8,6 +8,7 @@ public class Main {
 
         ArrayList<Client> clientArrayList = new ArrayList<>();
         ArrayList<Vehicle> vehicleArrayList = new ArrayList<>();
+        ArrayList<Sale> saleArrayList = new ArrayList<>();
 
         Client client1 = new Client();
         client1.setDni("71453503R");
@@ -102,6 +103,7 @@ public class Main {
         vehicle2.getVehicleRegistration();
         vehicle2.setVendido(true);
         vehicle2.getVendido();
+
 
 
 
@@ -240,84 +242,91 @@ public class Main {
         Sale sale1 = new Sale();
         sale1.setCostumerData(clientArrayList);
         sale1.setVehiculeData(vehicleArrayList);
-        sale1.setId("");
-        sale1.setCost(33.2);
+        sale1.setId("33244g");
+        sale1.setCost(15000.2);
+        sale1.setDataSale("tarjeta");
         sale1.getDataSale();
         sale1.getCostumerData();
         sale1.getVehiculeData();
         sale1.getId();
+        saleArrayList.add(sale1);
 
         Sale sale2 = new Sale();
-        sale2.setCost(33.2);
-        sale2.setDataSale("");
+        sale2.setCost(32000.2);
+        sale2.setDataSale("dinero");
         sale2.setCostumerData(clientArrayList);
         sale2.setVehiculeData(vehicleArrayList);
-        sale2.setId("");
+        sale2.setId("2432r233");
         sale2.getDataSale();
         sale2.getCostumerData();
         sale2.getVehiculeData();
         sale2.getId();
+        saleArrayList.add(sale2);
 
 
         Sale sale3 = new Sale();
-        sale3.setCost(33.2);
-        sale3.setDataSale("");
+        sale3.setCost(50000.25);
+        sale3.setDataSale("tarjeta");
         sale3.setCostumerData(clientArrayList);
         sale3.setVehiculeData(vehicleArrayList);
-        sale3.setId("");
+        sale3.setId("2344hj");
         sale3.getDataSale();
         sale3.getCostumerData();
         sale3.getVehiculeData();
         sale3.getId();
+        saleArrayList.add(sale3);
 
 
         Sale sale4 = new Sale();
-        sale4.setCost(33.2);
-        sale4.setDataSale("");
+        sale4.setCost(55000.03);
+        sale4.setDataSale(" cheque");
         sale4.setCostumerData(clientArrayList);
         sale4.setVehiculeData(vehicleArrayList);
-        sale4.setId("");
+        sale4.setId("32421t");
         sale4.getDataSale();
         sale4.getCostumerData();
         sale4.getVehiculeData();
         sale4.getId();
+        saleArrayList.add(sale4);
 
 
         Sale sale5 = new Sale();
-        sale5.setCost(33.2);
-        sale5.setDataSale("");
+        sale5.setCost(130000.2);
+        sale5.setDataSale("efectivo");
         sale5.setCostumerData(clientArrayList);
         sale5.setVehiculeData(vehicleArrayList);
-        sale5.setId("");
+        sale5.setId("344gf112");
         sale5.getDataSale();
         sale5.getCostumerData();
         sale5.getVehiculeData();
         sale5.getId();
+        saleArrayList.add(sale5);
 
 
         Sale sale6 = new Sale();
-        sale6.setCost(33.2);
-        sale6.setDataSale("");
+        sale6.setCost(30000.25);
+        sale6.setDataSale("targeta");
         sale6.setCostumerData(clientArrayList);
         sale6.setVehiculeData(vehicleArrayList);
-        sale6.setId("");
+        sale6.setId("242t");
         sale6.getDataSale();
         sale6.getCostumerData();
         sale6.getVehiculeData();
         sale6.getId();
+        saleArrayList.add(sale6);
 
 
         Sale sale7 = new Sale();
-        sale7.setCost(33.2);
-        sale7.setDataSale("");
+        sale7.setCost(43000.99);
+        sale7.setDataSale("cheque");
         sale7.setCostumerData(clientArrayList);
         sale7.setVehiculeData(vehicleArrayList);
-        sale7.setId("");
-
+        sale7.setId("23423t");
         sale7.getDataSale();
         sale7.getCostumerData();
         sale7.getVehiculeData();
         sale7.getId();
+        saleArrayList.add(sale7);
 
 
         Scanner scanner = new Scanner(System.in);
@@ -362,7 +371,21 @@ public class Main {
                             break;
                         case 4:
                             System.out.println("Facturas");
-                            System.out.println(sale1.toString());
+                            for (Vehicle vehicle : vehicleArrayList) {
+                                if (vehicle.getVendido()) {
+                            for (Sale sale : saleArrayList ) {
+                                if (sale.getVehiculeData().contains(vehicle)) {
+                                    System.out.println("Detalles de la Factura:");
+                                    System.out.println(sale.toString());
+                                    // Buscar el cliente asociado a la factura
+                                    for (Client client : sale.getCostumerData()) {
+                                        System.out.println("Detalles del Cliente:");
+                                        System.out.println(client.toString());
+                                    }
+                                }
+                            }
+                                }
+                            }
                             break;
                         case 0:
                             System.out.println("Saliendo del programa. ¡Hasta luego!");
