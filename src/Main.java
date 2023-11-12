@@ -367,7 +367,11 @@ public class Main {
                             break;
                         case 3:
                             System.out.println("Clientes");
-                            System.out.println(clientArrayList.toString());
+                            for (Client client : clientArrayList) {
+
+                                    System.out.println(client.toString());
+
+                            }
                             break;
                         case 4:
                             System.out.println("Facturas");
