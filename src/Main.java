@@ -82,6 +82,8 @@ public class Main {
         vehicle1.getFuel();
         vehicle1.getHorser();
         vehicle1.getVehicleRegistration();
+        vehicle1.setVendido(true);
+        vehicle1.getVendido();
 
 
         Vehicle vehicle2 = new Vehicle();
@@ -98,6 +100,8 @@ public class Main {
         vehicle2.getFuel();
         vehicle2.getHorser();
         vehicle2.getVehicleRegistration();
+        vehicle2.setVendido(true);
+        vehicle2.getVendido();
 
 
 
@@ -115,6 +119,8 @@ public class Main {
         vehicle3.getFuel();
         vehicle3.getHorser();
         vehicle3.getVehicleRegistration();
+        vehicle3.setVendido(true);
+        vehicle3.getVendido();
 
 
         Vehicle vehicle4 = new Vehicle();
@@ -131,6 +137,8 @@ public class Main {
         vehicle4.getFuel();
         vehicle4.getHorser();
         vehicle4.getVehicleRegistration();
+        vehicle4.setVendido(true);
+        vehicle4.getVendido();
 
 
         Vehicle vehicle5 = new Vehicle();
@@ -147,6 +155,11 @@ public class Main {
         vehicle5.getFuel();
         vehicle5.getHorser();
         vehicle5.getVehicleRegistration();
+        vehicle5.setVendido(true);
+        vehicle5.getVendido();
+
+
+
 
         Vehicle vehicle6 = new Vehicle();
         vehicle6.setBrand("Chevrolet");
@@ -162,6 +175,9 @@ public class Main {
         vehicle6.getFuel();
         vehicle6.getHorser();
         vehicle6.getVehicleRegistration();
+        vehicle6.setVendido(false);
+        vehicle6.getVendido();
+
 
 
         Vehicle vehicle7 = new Vehicle();
@@ -178,6 +194,9 @@ public class Main {
         vehicle7.getFuel();
         vehicle7.getHorser();
         vehicle7.getVehicleRegistration();
+        vehicle7.setVendido(false);
+        vehicle7.getVendido();
+
 
 
         Vehicle vehicle8 = new Vehicle();
@@ -188,13 +207,15 @@ public class Main {
         vehicle8.setHorser("180");
         vehicle8.setVehicleRegistration("STU901");
         vehicleArrayList.add(vehicle8);
-
         vehicle8.getBrand();
         vehicle8.getColor();
         vehicle8.getEngine();
         vehicle8.getFuel();
         vehicle8.getHorser();
         vehicle8.getVehicleRegistration();
+        vehicle8.setVendido(false);
+        vehicle8.getVendido();
+
 
 
         Vehicle vehicle9 = new Vehicle();
@@ -211,6 +232,9 @@ public class Main {
         vehicle9.getFuel();
         vehicle9.getHorser();
         vehicle9.getVehicleRegistration();
+        vehicle9.setVendido(false);
+        vehicle9.getVendido();
+
 
 
         Sale sale1 = new Sale();
@@ -317,11 +341,19 @@ public class Main {
                     switch (opcion) {
                         case 1:
                             System.out.println("Coches No Vendidos");
-                            System.out.println(vehicleArrayList.toString());
+                            for (Vehicle vehicle : vehicleArrayList) {
+                                if (!vehicle.getVendido()) {
+                                    System.out.println(vehicle.toString());
+                                }
+                            }
                             break;
                         case 2:
-                            System.out.println("Coches Vendidos");
-                            System.out.println(vehicleArrayList.toString());
+                            System.out.println("Coches No Vendidos");
+                            for (Vehicle vehicle : vehicleArrayList) {
+                                if (vehicle.getVendido()) {
+                                    System.out.println(vehicle.toString());
+                                }
+                            }
 
                             break;
                         case 3:
