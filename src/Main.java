@@ -375,21 +375,43 @@ public class Main {
                             break;
                         case 4:
                             System.out.println("Facturas");
-                            for (Vehicle vehicle : vehicleArrayList) {
-                                if (vehicle.getVendido()) {
-                            for (Sale sale : saleArrayList ) {
-                                if (sale.getVehiculeData().contains(vehicle)) {
+                            System.out.println("ID: " + sale1.getId() + "\n" + "ID: " + sale2.getId() + "\n" +
+                                    "ID: " + sale3.getId() + "\n" + "ID: " + sale4.getId() + "\n"
+                                    + "ID: " + sale5.getId() + "\n" + "ID: " + sale6.getId() + "\n"
+                                    + "ID: " + sale7.getId() + "\n");
+                            System.out.print("Ingrese el ID de la factura que desea ver: ");
+                            String facturaId = scanner.next();
+
+                            boolean facturaEncontrada = false;
+                            for (Sale sale : saleArrayList) {
+                                if (sale.getId().equals(facturaId)) {
+                                    facturaEncontrada = true;
                                     System.out.println("Detalles de la Factura:");
                                     System.out.println(sale.toString());
-                                    // Buscar el cliente asociado a la factura
-                                    for (Client client : sale.getCostumerData()) {
-                                        System.out.println("Detalles del Cliente:");
-                                        System.out.println(client.toString());
+
+                                    // Mostrar el primer coche asociado a la factura
+                                    if (!sale.getVehiculeData().isEmpty()) {
+                                        System.out.println("Detalles del Coche:");
+                                        System.out.println(sale.getVehiculeData().get(0).toString());
                                     }
+
+                                    // Mostrar el primer cliente asociado a la factura
+                                    if (!sale.getCostumerData().isEmpty()) {
+                                        System.out.println("Detalles del Cliente:");
+                                        System.out.println(sale.getCostumerData().get(0).toString());
+                                    }
+                                    break;
                                 }
                             }
-                                }
+
+                            if (!facturaEncontrada) {
+                                System.out.println("Factura no encontrada. Verifique el ID de la factura e intente de nuevo.");
                             }
+
+                            if (!facturaEncontrada) {
+                                System.out.println("Factura no encontrada. Verifique el ID de la factura e intente de nuevo.");
+                            }
+
                             break;
                         case 0:
                             System.out.println("Saliendo del programa. ¡Hasta luego!");
