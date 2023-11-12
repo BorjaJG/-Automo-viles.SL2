@@ -105,8 +105,6 @@ public class Main {
         vehicle2.getVendido();
 
 
-
-
         Vehicle vehicle3 = new Vehicle();
         vehicle3.setBrand("Ford");
         vehicle3.setColor("Silver");
@@ -161,8 +159,6 @@ public class Main {
         vehicle5.getVendido();
 
 
-
-
         Vehicle vehicle6 = new Vehicle();
         vehicle6.setBrand("Chevrolet");
         vehicle6.setColor("Green");
@@ -179,7 +175,6 @@ public class Main {
         vehicle6.getVehicleRegistration();
         vehicle6.setVendido(false);
         vehicle6.getVendido();
-
 
 
         Vehicle vehicle7 = new Vehicle();
@@ -200,7 +195,6 @@ public class Main {
         vehicle7.getVendido();
 
 
-
         Vehicle vehicle8 = new Vehicle();
         vehicle8.setBrand("Volkswagen");
         vehicle8.setColor("Orange");
@@ -219,7 +213,6 @@ public class Main {
         vehicle8.getVendido();
 
 
-
         Vehicle vehicle9 = new Vehicle();
         vehicle9.setBrand("Audi");
         vehicle9.setColor("Purple");
@@ -236,7 +229,6 @@ public class Main {
         vehicle9.getVehicleRegistration();
         vehicle9.setVendido(false);
         vehicle9.getVendido();
-
 
 
         Sale sale1 = new Sale();
@@ -346,85 +338,117 @@ public class Main {
             // Leer la opción del usuario
             opcion = scanner.nextInt();
 
-                    // Procesar la opción
-                    switch (opcion) {
-                        case 1:
-                            System.out.println("Coches No Vendidos");
-                            for (Vehicle vehicle : vehicleArrayList) {
-                                if (!vehicle.getVendido()) {
-                                    System.out.println(vehicle.toString());
-                                }
-                            }
-                            break;
-                        case 2:
-                            System.out.println("Coches No Vendidos");
-                            for (Vehicle vehicle : vehicleArrayList) {
-                                if (vehicle.getVendido()) {
-                                    System.out.println(vehicle.toString());
-                                }
-                            }
-
-                            break;
-                        case 3:
-                            System.out.println("Clientes");
-                            for (Client client : clientArrayList) {
-
-                                    System.out.println(client.toString());
-
-                            }
-                            break;
-                        case 4:
-                            System.out.println("Facturas");
-                            System.out.println("ID: " + sale1.getId() + "\n" + "ID: " + sale2.getId() + "\n" +
-                                    "ID: " + sale3.getId() + "\n" + "ID: " + sale4.getId() + "\n"
-                                    + "ID: " + sale5.getId() + "\n" + "ID: " + sale6.getId() + "\n"
-                                    + "ID: " + sale7.getId() + "\n");
-                            System.out.print("Ingrese el ID de la factura que desea ver: ");
-                            String facturaId = scanner.next();
-
-                            boolean facturaEncontrada = false;
-                            for (Sale sale : saleArrayList) {
-                                if (sale.getId().equals(facturaId)) {
-                                    facturaEncontrada = true;
-                                    System.out.println("Detalles de la Factura:");
-                                    System.out.println(sale.toString());
-
-                                    // Mostrar el primer coche asociado a la factura
-                                    if (!sale.getVehiculeData().isEmpty()) {
-                                        System.out.println("Detalles del Coche:");
-                                        System.out.println(sale.getVehiculeData().get(0).toString());
-                                    }
-
-                                    // Mostrar el primer cliente asociado a la factura
-                                    if (!sale.getCostumerData().isEmpty()) {
-                                        System.out.println("Detalles del Cliente:");
-                                        System.out.println(sale.getCostumerData().get(0).toString());
-                                    }
-                                    break;
-                                }
-                            }
-
-                            if (!facturaEncontrada) {
-                                System.out.println("Factura no encontrada. Verifique el ID de la factura e intente de nuevo.");
-                            }
-
-                            if (!facturaEncontrada) {
-                                System.out.println("Factura no encontrada. Verifique el ID de la factura e intente de nuevo.");
-                            }
-
-                            break;
-                        case 0:
-                            System.out.println("Saliendo del programa. ¡Hasta luego!");
-                            break;
-                        default:
-                            System.out.println("Opción no válida. Intente de nuevo.");
-
+            // Procesar la opción
+            switch (opcion) {
+                case 1:
+                    System.out.println("Coches No Vendidos");
+                    for (Vehicle vehicle : vehicleArrayList) {
+                        if (!vehicle.getVendido()) {
+                            System.out.println(vehicle.toString());
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Coches No Vendidos");
+                    for (Vehicle vehicle : vehicleArrayList) {
+                        if (vehicle.getVendido()) {
+                            System.out.println(vehicle.toString());
+                        }
                     }
 
+                    break;
+                case 3:
+                    System.out.println("Clientes");
+                    for (Client client : clientArrayList) {
+
+                        System.out.println(client.toString());
+
+                    }
+                    break;
+                case 4:
+                    System.out.println("Facturas");
+                    System.out.println("ID: " + sale1.getId() + "\n" + "ID: " + sale2.getId() + "\n" +
+                            "ID: " + sale3.getId() + "\n" + "ID: " + sale4.getId() + "\n"
+                            + "ID: " + sale5.getId() + "\n" + "ID: " + sale6.getId() + "\n"
+                            + "ID: " + sale7.getId() + "\n");
+                    System.out.print("Ingrese el ID de la factura que desea ver: ");
+                    String facturaId = scanner.next();
+
+                    boolean facturaEncontrada = false;
+                    int i = 0;
+                    switch (facturaId) {
+                        case "33244g":
+                            facturaEncontrada = true;
+                            i = 1;
+                            break;
+                        case "2432r233":
+                            i = 2;
+                            facturaEncontrada = true;
+                            break;
+                        case "2344hj":
+                            i = 3;
+                            facturaEncontrada = true;
+                            break;
+                        case "32421t":
+                            i = 4;
+                            facturaEncontrada = true;
+                            break;
+                        case "344gf112":
+                            i = 5;
+                            facturaEncontrada = true;
+                            break;
+                        case "242t":
+                            i = 6;
+                            facturaEncontrada = true;
+                            break;
+                        case "23423t":
+                            i = 7;
+                            facturaEncontrada = true;
+                            break;
+                    }
+                    
+                    for (Sale sale : saleArrayList) {
+
+                        if (sale.getId().equals(facturaId)) {
+                            facturaEncontrada = true;
+                            System.out.println("Detalles de la Factura:");
+                            System.out.println(sale.toString());
+
+                            // Mostrar el primer coche asociado a la factura
+                            if (!sale.getVehiculeData().isEmpty()) {
+                                System.out.println("Detalles del Coche:");
+                                System.out.println(sale.getVehiculeData().get(i).toString());
+                            }
+
+                            // Mostrar el primer cliente asociado a la factura
+                            if (!sale.getCostumerData().isEmpty()) {
+                                System.out.println("Detalles del Cliente:");
+                                System.out.println(sale.getCostumerData().get(i).toString());
+                            }
+                            break;
+                        }
+                    }
+
+                    if (!facturaEncontrada) {
+                        System.out.println("Factura no encontrada. Verifique el ID de la factura e intente de nuevo.");
+                    }
+
+                    if (!facturaEncontrada) {
+                        System.out.println("Factura no encontrada. Verifique el ID de la factura e intente de nuevo.");
+                    }
+
+                    break;
+                case 0:
+                    System.out.println("Saliendo del programa. ¡Hasta luego!");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+
+            }
 
 
+        } while (opcion != 0);
 
-        }while (opcion != 0) ;
 
-
-    }}
+    }
+}

@@ -63,8 +63,6 @@ public class Sale {
                 "id='" + id + '\'' +
                 ", dataSale='" + dataSale + '\'' +
                 ", cost=" + cost +
-                ", costumerData=" + costumerData +
-                ", vehiculeData=" + vehiculeData +
                 '}';
     }
 }
